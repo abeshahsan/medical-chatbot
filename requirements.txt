@@ -1,4 +1,4 @@
-#Python version: 3.12, anaconda version: 26.1.1
+#Python version: 3.10,20, anaconda version: 26.1.1
 
 langchain==0.3.26
 flask==3.1.1 
