@@ -1,0 +1,137 @@
+:root {
+	--bg: #f2f5f9;
+	--card: #ffffff;
+	--text: #1f2a37;
+	--muted: #5f6c7b;
+	--brand: #0f766e;
+	--brand-soft: #d7f3ef;
+	--user: #0f766e;
+	--bot: #e8eef5;
+	--border: #d7e0ea;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	color: var(--text);
+	background: radial-gradient(circle at top, #f8fbff 0%, var(--bg) 60%);
+}
+
+.app {
+	min-height: 100vh;
+	display: grid;
+	place-items: center;
+	padding: 16px;
+}
+
+.chatbox {
+	width: min(760px, 100%);
+	height: min(86vh, 720px);
+	background: var(--card);
+	border: 1px solid var(--border);
+	border-radius: 18px;
+	box-shadow: 0 16px 42px rgba(14, 25, 40, 0.08);
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	overflow: hidden;
+}
+
+.chat-header {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 14px 16px;
+	border-bottom: 1px solid var(--border);
+	background: linear-gradient(180deg, #ffffff 0%, #f9fcff 100%);
+}
+
+.bot-logo {
+	width: 34px;
+	height: 34px;
+}
+
+.chat-header h1 {
+	margin: 0;
+	font-size: 17px;
+}
+
+.chat-header p {
+	margin: 2px 0 0;
+	font-size: 12px;
+	color: var(--muted);
+}
+
+.messages {
+	padding: 16px;
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.bubble {
+	max-width: 75%;
+	padding: 10px 12px;
+	border-radius: 14px;
+	line-height: 1.4;
+	font-size: 14px;
+}
+
+.bubble.bot {
+	align-self: flex-start;
+	background: var(--bot);
+	color: var(--text);
+}
+
+.bubble.user {
+	align-self: flex-end;
+	background: var(--user);
+	color: #ffffff;
+}
+
+.chat-form {
+	border-top: 1px solid var(--border);
+	padding: 12px;
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap: 10px;
+}
+
+.chat-form input {
+	width: 100%;
+	padding: 10px 12px;
+	border: 1px solid var(--border);
+	border-radius: 10px;
+	font-size: 14px;
+	outline: none;
+}
+
+.chat-form input:focus {
+	border-color: var(--brand);
+	box-shadow: 0 0 0 3px var(--brand-soft);
+}
+
+.chat-form button {
+	border: 0;
+	border-radius: 10px;
+	background: var(--brand);
+	color: #ffffff;
+	padding: 0 16px;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+@media (max-width: 640px) {
+	.chatbox {
+		height: 92vh;
+		border-radius: 14px;
+	}
+
+	.bubble {
+		max-width: 88%;
+	}
+}

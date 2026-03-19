@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Medical Chatbot</title>
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='index.css') }}"
+		/>
+	</head>
+	<body>
+		<main class="app">
+			<section class="chatbox">
+				<header class="chat-header">
+					<img
+						class="bot-logo"
+						src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f916.svg"
+						alt="Bot logo"
+					/>
+					<div>
+						<h1>Medical Chatbot</h1>
+						<p>Ask your health questions</p>
+					</div>
+				</header>
+
+				<div
+					id="messages"
+					class="messages"
+					aria-live="polite"
+				>
+					<div class="bubble bot">Hi, I am your assistant. How can I help?</div>
+				</div>
+
+				<form
+					id="chat-form"
+					class="chat-form"
+				>
+					<input
+						id="question"
+						type="text"
+						placeholder="Type your question..."
+						autocomplete="off"
+						required
+					/>
+					<button type="submit">Send</button>
+				</form>
+			</section>
+		</main>
+
+		<script src="{{ url_for('static', filename='index.js') }}"></script>
+	</body>
+</html>
