@@ -38,10 +38,32 @@ def index():
 def chat():
     payload = request.get_json(silent=True) or {}
     user_input = str(payload.get("message", "")).strip()
+    history = payload.get("history", [])
     if not user_input:
         return jsonify({"msg": "Please enter a question."}), 400
 
-    llm_response = rag_chain.invoke({"input": user_input})
+    history_lines = []
+    if isinstance(history, list):
+        for turn in history[-8:]:
+            if not isinstance(turn, dict):
+                continue
+            role = str(turn.get("role", "")).strip().lower()
+            text = str(turn.get("text", "")).strip()
+            if role in {"user", "bot"} and text:
+                speaker = "User" if role == "user" else "Assistant"
+                history_lines.append(f"{speaker}: {text}")
+
+    if history_lines:
+        prompt_input = (
+            "Conversation history:\n"
+            + "\n".join(history_lines)
+            + "\n\nCurrent question: "
+            + user_input
+        )
+    else:
+        prompt_input = user_input
+
+    llm_response = rag_chain.invoke({"input": prompt_input})
 
     bot_message = f"{llm_response['answer']}"
     return jsonify({"msg": bot_message})
