@@ -1,6 +1,16 @@
-# Project Title
+<h1 align="center">Medical Knowledge RAG Assistant</h1>
 
-Medical Knowledge RAG Assistant (Flask + LangChain + Pinecone)
+<p align="center">
+	<img src="https://img.shields.io/badge/Python-3.10-3776AB?logo=python&logoColor=white" alt="Python 3.10" />
+	<img src="https://img.shields.io/badge/Flask-3.1.1-000000?logo=flask&logoColor=white" alt="Flask" />
+	<img src="https://img.shields.io/badge/LangChain-0.3.x-1C3C3C?logo=langchain&logoColor=white" alt="LangChain" />
+	<img src="https://img.shields.io/badge/Pinecone-Vector_DB-005BD4?logo=pinecone&logoColor=white" alt="Pinecone" />
+</p>
+<p align="center">
+	<img src="https://img.shields.io/badge/OpenRouter-GPT--4o-6D4AFF?logo=openai&logoColor=white" alt="OpenRouter GPT-4o" />
+	<img src="https://img.shields.io/badge/HuggingFace-BAAI%2Fbge--small--en--v1.5-FF9D00?logo=huggingface&logoColor=black" alt="BGE Small Embeddings" />
+	<img src="https://img.shields.io/badge/Docker-Containerized-2496ED?logo=docker&logoColor=white" alt="Docker" />
+</p>
 
 ---
 
@@ -53,18 +63,18 @@ User (Web UI)
 	 |
 	 v
 POST /chat --------------> Flask app (app.py)
-															|
-															v
-											 LangChain Retrieval Chain
-											 |                      |
-											 v                      v
-								 Pinecone Retriever      ChatOpenAI (gpt-4o via OpenRouter)
-											 |                      ^
-											 v                      |
-							 Retrieved context chunks ------+
-															|
-															v
-												Final answer JSON
+                                    |
+                                    v
+                        LangChain Retrieval Chain
+                        |                      |
+                        v                      v
+            Pinecone Retriever      ChatOpenAI (gpt-4o via OpenRouter)
+                        |                      ^
+                        v                      |
+        Retrieved context chunks ------+
+                                    |
+                                    v
+                        Final answer JSON
 ```
 
 ---
@@ -198,16 +208,18 @@ python ingest.py
 
 # Tech Stack
 
-- Python 3.10
-- Flask
-- LangChain (`langchain`, `langchain-community`, `langchain-openai`, `langchain-pinecone`)
-- OpenRouter (through OpenAI-compatible `ChatOpenAI` client)
-- GPT-4o (configured model)
-- Pinecone (serverless vector store)
-- Hugging Face Sentence Transformers embeddings (`BAAI/bge-small-en-v1.5`)
-- PyPDF
-- Docker + Gunicorn
-- Pytest (dev dependency)
+<p>
+	<img src="https://img.shields.io/badge/Python-3.10-3776AB?logo=python&logoColor=white" alt="Python 3.10" />
+	<img src="https://img.shields.io/badge/Flask-3.1.1-000000?logo=flask&logoColor=white" alt="Flask" />
+	<img src="https://img.shields.io/badge/LangChain-core%20%7C%20community%20%7C%20openai%20%7C%20pinecone-1C3C3C?logo=langchain&logoColor=white" alt="LangChain ecosystem" />
+	<img src="https://img.shields.io/badge/OpenRouter-GPT--4o-6D4AFF?logo=openai&logoColor=white" alt="OpenRouter GPT-4o" />
+	<img src="https://img.shields.io/badge/Pinecone-Serverless-005BD4?logo=pinecone&logoColor=white" alt="Pinecone" />
+	<img src="https://img.shields.io/badge/SentenceTransformers-BAAI%2Fbge--small--en--v1.5-FF9D00?logo=huggingface&logoColor=black" alt="Sentence Transformers" />
+	<img src="https://img.shields.io/badge/PyPDF-PDF_Processing-CC0000" alt="PyPDF" />
+	<img src="https://img.shields.io/badge/Gunicorn-22.0.0-499848" alt="Gunicorn" />
+	<img src="https://img.shields.io/badge/Docker-Containerized-2496ED?logo=docker&logoColor=white" alt="Docker" />
+	<img src="https://img.shields.io/badge/Pytest-Testing-0A9EDC?logo=pytest&logoColor=white" alt="Pytest" />
+</p>
 
 ---
 
