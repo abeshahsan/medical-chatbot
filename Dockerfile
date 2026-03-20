@@ -5,6 +5,7 @@ WORKDIR /app
 # Copy requirements first (for caching)
 COPY requirements.txt .
 
+RUN pip install gunicorn==22.0.0
 RUN pip install torch==2.5.0 --index-url https://download.pytorch.org/whl/cpu
 
 RUN pip install -r requirements.txt
@@ -14,8 +15,7 @@ COPY . .
 
 RUN pip install .
 
-# Expose port (change if needed)
 EXPOSE 5000
 
-# Run your app (adjust to your framework)
-CMD ["python", "app.py"]
+
+CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:5000"]
